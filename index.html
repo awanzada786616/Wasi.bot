@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termux Remote Control</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Details</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      border: 1px solid white;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #1a1a1a;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .details {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    .button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #ccc;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; padding: 20px; background: #f0f0f0">
-  <h1>🚀 Termux Command Sender</h1>
-  <input id="cmdInput" style="width: 80%; padding: 8px" placeholder="Enter Termux Command" />
-  <button id="sendBtn">Send to Termux</button>
-
-  <h3>📋 Quick Commands:</h3>
-  <button onclick="sendCommand('apt update && apt upgrade -y')">Update & Upgrade</button>
-  <button onclick="sendCommand('apt install git -y')">Install Git</button>
-  <button onclick="sendCommand('git clone https://github.com/DARK-H4CKER01/CODEX')">Clone CODEX</button>
-  <button onclick="sendCommand('cd CODEX && chmod +x * && bash install.sh')">Install CODEX</button>
-
-  <h3>📤 Result from Termux:</h3>
-  <pre id="result" style="background: #fff; padding: 10px; border: 1px solid #ccc">Waiting for result...</pre>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyC1Opi7ajFSmIcBNXRbma3PTbB-0H6sXGI",
-      authDomain: "awaisotpsystem.firebaseapp.com",
-      databaseURL: "https://awaisotpsystem-default-rtdb.firebaseio.com",
-      projectId: "awaisotpsystem",
-      storageBucket: "awaisotpsystem.appspot.com",
-      messagingSenderId: "474160002120",
-      appId: "1:474160002120:web:1b3d25f8ccd7c76b1b947d"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    window.sendCommand = (command) => {
-      set(ref(db, 'command'), {
-        cmd: command,
-        status: 'pending',
-        result: ''
-      });
-    };
-
-    document.getElementById("sendBtn").addEventListener("click", () => {
-      const cmd = document.getElementById("cmdInput").value;
-      sendCommand(cmd);
-    });
-
-    onValue(ref(db, 'command/result'), (snapshot) => {
-      document.getElementById("result").innerText = snapshot.val() || 'No result yet.';
-    });
-  </script>
+<body>
+  <div class="container">
+    <h1>Login Details</h1>
+    <div class="details">
+      <p><strong>Username:</strong> igp.sindh</p>
+      <p><strong>Password:</strong> SHAREkv9sY</p>
+    </div>
+    <a class="button" href="https://trs.sindhpolice.gov.pk/admin/tenants" target="_blank">Use this login here</a>
+  </div>
 </body>
 </html>
